@@ -21,7 +21,9 @@ function Login() {
     };
     // console.log(userInfo);
     axios
-      .post("https://chat-app-backend-aq4k.onrender.com/api/user/login", userInfo)
+      .post("https://chat-app-backend-aq4k.onrender.com/api/user/login", userInfo, {
+        withCredentials: true, // ✅ Required for cookie to work
+      })
       .then((response) => {
         if (response.data) {
           toast.success("Login successful");
